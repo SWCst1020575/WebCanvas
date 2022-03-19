@@ -1,0 +1,19 @@
+#myCanvas {
+    position: absolute;
+}
+
+#toolWindow {
+    border: 2px #9e9d9d solid;
+    border-radius: 10px;
+    width: 180px;
+    height: calc(100vh - 40px);
+    background-color: rgba(196, 196, 196, 0.7);
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}

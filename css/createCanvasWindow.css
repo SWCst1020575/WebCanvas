@@ -1,0 +1,72 @@
+body {
+    background-color: rgb(225, 225, 225);
+}
+
+#creatWindow {
+    border: 2px #9e9d9d solid;
+    border-radius: 10px;
+    width: 600px;
+    height: 280px;
+    background-color: rgb(196, 196, 196);
+    position: absolute;
+    left: calc(50vw - 300px);
+    top: calc(50vh - 140px);
+}
+
+#createCanvasText {
+    position: absolute;
+    font-size: 48px;
+    left: 50%;
+    top: 8%;
+    transform: translate(-50%, 0);
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.canvasScaleInput {
+    font-size: 24px;
+    width: 160px;
+    height: 34px;
+    top: 40%;
+    text-align: center;
+    border-radius: 8px;
+    border-color: rgb(224, 224, 224);
+}
+
+#heightSet {
+    position: absolute;
+    left: 28%;
+    transform: translate(-50%, 0);
+}
+
+#widthSet {
+    position: absolute;
+    left: 72%;
+    transform: translate(-50%, 0);
+}
+
+.canvasScaleInput::placeholder {
+    color: rgb(78, 78, 78);
+    opacity: 0.4;
+}
+
+#commitSizeButton {
+    height: 48px;
+    width: 160px;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%, 0);
+    background-color: rgb(241, 241, 241);
+    color: rgb(36, 36, 36);
+    font-size: 20px;
+    transition-duration: 0.3s;
+    border-radius: 8px;
+}
+
+#commitSizeButton:hover {
+    background-color: #d3cdcd;
+}

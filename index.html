@@ -4,11 +4,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>WebCanvas</title>
+    <title>WebCanvas - Create Canvas</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/createCanvasWindow.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/createCanvasWindow.css">
+
 </head>
 
 <body>
-
+    <canvas id="myCanvas"  style="display: none;"></canvas>
+    <div id="toolWindow" style="display: none;"></div>
+    <div id="creatWindow">
+        <div id="createCanvasText">Create Canvas</div>
+        <input class="canvasScaleInput" id="heightSet" type="text" placeholder="Height"
+            onkeydown="numberRestriction(this)" readonly>
+        <input class="canvasScaleInput" id="widthSet" type="text" placeholder="Width"
+            onkeydown="numberRestriction(this)" readonly>
+        <button id="commitSizeButton" onclick="clickCreateCanvas()">Create</button>
+    </div>
 
 </body>
 
