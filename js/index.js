@@ -1,5 +1,5 @@
 // 0=cursor 1=drag 2=text 3=pen 4=eraser 5=circle 6=rectangle 7=triangle
-// 8=line 9=refresh 10=upload 11=download 12=undo 14=redo
+// 8=line 9=refresh 10=upload 11=download 12=undo 13=redo 14=enlarge 15=shrink
 var nowTool = 0;
 function createCanvas(h, w) {
     canvas = document.getElementById('myCanvas');
@@ -63,6 +63,12 @@ function changeToolButton(target) {
         case 13:
             $("#redoButton").css({ 'background-color': colorType });
             break;
+        case 14:
+            $("#enlargeButton").css({ 'background-color': colorType });
+            break;
+        case 15:
+            $("#shrinkButton").css({ 'background-color': colorType });
+            break;
     }
     colorType = "rgba(215, 215, 215, 0.7)";
     switch (target) {
@@ -107,6 +113,12 @@ function changeToolButton(target) {
             break;
         case 13:
             $("#redoButton").css({ 'background-color': colorType });
+            break;
+        case 14:
+            $("#enlargeButton").css({ 'background-color': colorType });
+            break;
+        case 15:
+            $("#shrinkButton").css({ 'background-color': colorType });
             break;
     }
     nowTool = target;
