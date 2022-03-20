@@ -22,7 +22,7 @@
 }
 
 #toolScrollBlock {
-    
+
     position: relative;
     top: 0px;
     height: 650px;
@@ -138,4 +138,11 @@ html {
 
 .rightToolButton {
     right: 6px;
+}
+
+#textInput {
+    width: 200px;
+    font-size: 24px;
+    position: absolute;
+    border-radius: 8px;
 }

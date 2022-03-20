@@ -1,7 +1,7 @@
 // 0=cursor 1=drag 2=text 3=pen 4=eraser 5=circle 6=rectangle 7=triangle
 // 8=line 9=refresh 10=upload 11=download 12=undo 13=redo 14=enlarge 15=shrink
 var nowTool = 0;
-
+var toolActive = 0;
 function createCanvas(h, w) {
     canvas = document.getElementById('myCanvas');
     ctx = canvas.getContext('2d');
@@ -10,30 +10,30 @@ function createCanvas(h, w) {
     canvas.width = w;
     canvasX = "calc(50vw - {0}px)".replace("{0}", canvas.width / 2 - 90);
     canvasY = "calc(50vh - {0}px)".replace("{0}", canvas.height / 2);
-    canvasBlockHeight = "{0}px".replace("{0}", h);
-    canvasBlockWidth = "{0}px".replace("{0}", w);
+    canvasBlockHeight = h + "px";
+    canvasBlockWidth = w + "px";
     $("#canvasBlock").css({ 'background-color': "white", 'position': "absolute", 'width': canvasBlockWidth, 'height': canvasBlockHeight, 'top': canvasY, 'left': canvasX });
     nowTool = 0;
     $("#cursorButton").css({ 'background-color': "rgba(215, 215, 215, 0.7)" });
+    $("title").text("WebCanvas - " + w + "x" + h);
     $("#toolWindow").show();
     $("#myCanvas").show();
 }
 function clickCursor() {
-    if (nowTool == 0)
-        return;
     changeToolButton(0);
     $("#canvasBlock").css({ 'cursor': "default" });
 }
 function clickDrag() {
-    if (nowTool == 1)
-        return;
     changeToolButton(1);
     $("#canvasBlock").css({ 'cursor': "grab" });
 }
-
+function clickText() {
+    changeToolButton(2);
+    $("#canvasBlock").css({ 'cursor': "url(\"img/textCursor.png\"),default" });
+}
 function drag(originX, originY, dx, dy) {
-    $("#canvasBlock").css({ "left": "{0}px".replace("{0}", (originX + dx)) });
-    $("#canvasBlock").css({ "top": "{0}px".replace("{0}", (originY + dy)) });
+    $("#canvasBlock").css({ "left": (originX + dx) + "px" });
+    $("#canvasBlock").css({ "top": (originY + dy) + "px" });
 }
 function changeToolButton(target) {
     var colorType = "rgba(255, 255, 255, 0.7)";

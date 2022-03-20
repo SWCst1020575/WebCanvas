@@ -17,6 +17,7 @@
     <div id="canvasBlock">
         <canvas id="myCanvas" style="display: none;"></canvas>
     </div>
+    <input id="textInput" type="text" style="display: none;">
     <div id="toolWindow" style="display: none;">
         <div id="visibleBlock">
             <div id="toolScrollBlock">
@@ -29,7 +30,7 @@
                     </button>
                 </div>
                 <div id="toolWindowSecondButton">
-                    <button id="textButton" class="toolButton leftToolButton" onclick="">
+                    <button id="textButton" class="toolButton leftToolButton" onclick="clickText()">
                         <img src="img/text.png" width="35" height="35">
                     </button>
                     <button id="penButton" class="toolButton rightToolButton" onclick="">
@@ -61,10 +62,12 @@
                     </button>
                 </div>
                 <div id="toolWindowSixthButton">
-                    <button id="uploadButton" class="toolButton leftToolButton" onclick="">
+                    <input id="uploadFile" type="file" style="display: none" />
+                    <button id="uploadButton" class="toolButton leftToolButton" onclick="uploadFile.click()">
                         <img src="img/upload.png" width="35" height="35">
                     </button>
-                    <button id="downloadButton" class="toolButton rightToolButton" onclick="">
+                    <input id="downloadFile" type="file" style="display: none" />
+                    <button id="downloadButton" class="toolButton rightToolButton" onclick="downloadFile.click()">
                         <img src="img/download.png" width="35" height="35">
                     </button>
                 </div>
