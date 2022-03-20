@@ -18,75 +18,79 @@
         <canvas id="myCanvas" style="display: none;"></canvas>
     </div>
     <div id="toolWindow" style="display: none;">
-        <div id="toolWindowFirstButton">
-            <button id="cursorButton" class="toolButton leftToolButton" onclick="">
-                <img src="img/cursor.png" width="35" height="35">
-            </button>
-            <button id="dragButton" class="toolButton rightToolButton" onclick="">
-                <img src="img/drag.png" width="35" height="35">
-            </button>
-        </div>
-        <div id="toolWindowSecondButton">
-            <button id="textButton" class="toolButton leftToolButton" onclick="">
-                <img src="img/text.png" width="35" height="35">
-            </button>
-            <button id="penButton" class="toolButton rightToolButton" onclick="">
-                <img src="img/pen.png" width="35" height="35">
-            </button>
-        </div>
-        <div id="toolWindowThirdButton">
-            <button id="eraserButton" class="toolButton leftToolButton" onclick="">
-                <img src="img/eraser.png" width="35" height="35">
-            </button>
-            <button id="circleButton" class="toolButton rightToolButton" onclick="">
-                <img src="img/circle.png" width="35" height="35">
-            </button>
-        </div>
-        <div id="toolWindowFourthButton">
-            <button id="rectangleButton" class="toolButton leftToolButton" onclick="">
-                <img src="img/rectangle.png" width="35" height="35">
-            </button>
-            <button id="triangleButton" class="toolButton rightToolButton" onclick="">
-                <img src="img/triangle.png" width="35" height="35">
-            </button>
-        </div>
-        <div id="toolWindowFifthButton">
-            <button id="lineButton" class="toolButton leftToolButton" onclick="">
-                <img src="img/line.png" width="35" height="35">
-            </button>
-            <button id="refreshButton" class="toolButton rightToolButton" onclick="">
-                <img src="img/refresh.png" width="35" height="35">
-            </button>
-        </div>
-        <div id="toolWindowSixthButton">
-            <button id="uploadButton" class="toolButton leftToolButton" onclick="">
-                <img src="img/upload.png" width="35" height="35">
-            </button>
-            <button id="downloadButton" class="toolButton rightToolButton" onclick="">
-                <img src="img/download.png" width="35" height="35">
-            </button>
-        </div>
-        <div id="toolWindowSeventhButton">
-            <button id="undoButton" class="toolButton leftToolButton" onclick="">
-                <img src="img/undo.png" width="35" height="35">
-            </button>
-            <button id="redoButton" class="toolButton rightToolButton" onclick="">
-                <img src="img/redo.png" width="35" height="35">
-            </button>
-        </div>
-        <div id="toolWindowEighthButton">
-            <button id="enlargeButton" class="toolButton leftToolButton" onclick="">
-                <img src="img/enlarge.png" width="35" height="35">
-            </button>
-            <button id="shrinkButton" class="toolButton rightToolButton" onclick="">
-                <img src="img/shrink.png" width="35" height="35">
-            </button>
-        </div>
-        <div id="toolWindowNinthButton">
-            <input type="color" id="inputColor">
-        </div>
-        <div id="toolWindowTenthButton">
-            <input type="range" id="thicknessRange" min="1" max="50" value="10" step="1">
+        <div id="visibleBlock">
+            <div id="toolScrollBlock">
+                <div id="toolWindowFirstButton">
+                    <button id="cursorButton" class="toolButton leftToolButton" onclick="clickCursor()">
+                        <img src="img/cursor.png" width="35" height="35">
+                    </button>
+                    <button id="dragButton" class="toolButton rightToolButton" onclick="clickDrag()">
+                        <img src="img/drag.png" width="35" height="35">
+                    </button>
+                </div>
+                <div id="toolWindowSecondButton">
+                    <button id="textButton" class="toolButton leftToolButton" onclick="">
+                        <img src="img/text.png" width="35" height="35">
+                    </button>
+                    <button id="penButton" class="toolButton rightToolButton" onclick="">
+                        <img src="img/pen.png" width="35" height="35">
+                    </button>
+                </div>
+                <div id="toolWindowThirdButton">
+                    <button id="eraserButton" class="toolButton leftToolButton" onclick="">
+                        <img src="img/eraser.png" width="35" height="35">
+                    </button>
+                    <button id="circleButton" class="toolButton rightToolButton" onclick="">
+                        <img src="img/circle.png" width="35" height="35">
+                    </button>
+                </div>
+                <div id="toolWindowFourthButton">
+                    <button id="rectangleButton" class="toolButton leftToolButton" onclick="">
+                        <img src="img/rectangle.png" width="35" height="35">
+                    </button>
+                    <button id="triangleButton" class="toolButton rightToolButton" onclick="">
+                        <img src="img/triangle.png" width="35" height="35">
+                    </button>
+                </div>
+                <div id="toolWindowFifthButton">
+                    <button id="lineButton" class="toolButton leftToolButton" onclick="">
+                        <img src="img/line.png" width="35" height="35">
+                    </button>
+                    <button id="refreshButton" class="toolButton rightToolButton" onclick="">
+                        <img src="img/refresh.png" width="35" height="35">
+                    </button>
+                </div>
+                <div id="toolWindowSixthButton">
+                    <button id="uploadButton" class="toolButton leftToolButton" onclick="">
+                        <img src="img/upload.png" width="35" height="35">
+                    </button>
+                    <button id="downloadButton" class="toolButton rightToolButton" onclick="">
+                        <img src="img/download.png" width="35" height="35">
+                    </button>
+                </div>
+                <div id="toolWindowSeventhButton">
+                    <button id="undoButton" class="toolButton leftToolButton" onclick="">
+                        <img src="img/undo.png" width="35" height="35">
+                    </button>
+                    <button id="redoButton" class="toolButton rightToolButton" onclick="">
+                        <img src="img/redo.png" width="35" height="35">
+                    </button>
+                </div>
+                <div id="toolWindowEighthButton">
+                    <button id="enlargeButton" class="toolButton leftToolButton" onclick="">
+                        <img src="img/enlarge.png" width="35" height="35">
+                    </button>
+                    <button id="shrinkButton" class="toolButton rightToolButton" onclick="">
+                        <img src="img/shrink.png" width="35" height="35">
+                    </button>
+                </div>
+                <div id="toolWindowNinthButton">
+                    <input type="color" id="inputColor">
+                </div>
+                <div id="toolWindowTenthButton">
+                    <input type="range" id="thicknessRange" min="1" max="50" value="10" step="1">
+                </div>
+            </div>
         </div>
     </div>
     <div id="creatWindow">
@@ -97,7 +101,7 @@
             onkeydown="numberRestriction(this)" readonly>
         <button id="commitSizeButton" onclick="clickCreateCanvas()">Create</button>
     </div>
-
+    <script type="text/javascript" src="js/eventListener.js"></script>
 </body>
 
 </html>

@@ -13,9 +13,28 @@
     top: 20px;
 }
 
+#visibleBlock {
+    overflow: hidden;
+    width: 150px;
+    height: calc(100vh - 80px);
+    position: absolute;
+    top: 20px;
+}
+
+#toolScrollBlock {
+    
+    position: relative;
+    top: 0px;
+    height: 650px;
+}
+
 html {
     overflow-x: hidden;
     overflow-y: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .toolButton {
@@ -26,7 +45,7 @@ html {
     border-radius: 100%;
     border-color: rgba(80, 80, 80, 0.5);
     background-color: rgba(255, 255, 255, 0.7);
-    
+
 }
 
 .toolButton:hover {
@@ -36,51 +55,52 @@ html {
 
 #toolWindowFirstButton {
     position: relative;
-    top: 10px;
+    top: 0px;
 }
 
 #toolWindowSecondButton {
     position: relative;
-    top: 80px;
+    top: 70px;
 }
 
 #toolWindowThirdButton {
     position: relative;
-    top: 150px;
+    top: 140px;
 }
 
 #toolWindowFourthButton {
     position: relative;
-    top: 220px;
+    top: 210px;
 }
 
 #toolWindowFifthButton {
     position: relative;
-    top: 290px;
+    top: 280px;
 }
 
 #toolWindowSixthButton {
     position: relative;
-    top: 360px;
+    top: 350px;
 }
 
 #toolWindowSeventhButton {
     position: relative;
-    top: 430px;
+    top: 420px;
 }
 
 #toolWindowEighthButton {
     position: relative;
-    top: 500px;
+    top: 490px;
 }
 
 #toolWindowNinthButton {
     position: relative;
-    top: 575px;
+    top: 565px;
 }
+
 #toolWindowTenthButton {
     position: relative;
-    top: 625px;
+    top: 615px;
     left: 25px;
 }
 
