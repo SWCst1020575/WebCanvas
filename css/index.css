@@ -5,7 +5,7 @@
 #toolWindow {
     border: 2px #9e9d9d solid;
     border-radius: 10px;
-    width: 180px;
+    width: 150px;
     height: calc(100vh - 40px);
     background-color: rgba(196, 196, 196, 0.7);
     position: absolute;
@@ -16,4 +16,102 @@
 html {
     overflow-x: hidden;
     overflow-y: hidden;
+}
+
+.toolButton {
+    position: absolute;
+    box-shadow: none;
+    height: 65px;
+    width: 65px;
+    border-radius: 100%;
+    border-color: rgba(80, 80, 80, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
+    
+}
+
+.toolButton:hover {
+    background-color: rgba(215, 215, 215, 0.7);
+    transition-duration: 0.3s;
+}
+
+#toolWindowFirstButton {
+    position: relative;
+    top: 10px;
+}
+
+#toolWindowSecondButton {
+    position: relative;
+    top: 85px;
+}
+
+#toolWindowThirdButton {
+    position: relative;
+    top: 160px;
+}
+
+#toolWindowFourthButton {
+    position: relative;
+    top: 235px;
+}
+
+#toolWindowFifthButton {
+    position: relative;
+    top: 310px;
+}
+
+#toolWindowSixthButton {
+    position: relative;
+    top: 385px;
+}
+
+#toolWindowSeventhButton {
+    position: relative;
+    top: 460px;
+}
+
+#toolWindowEighthButton {
+    position: relative;
+    top: 530px;
+}
+
+#toolWindowNinthButton {
+    position: relative;
+    top: 580px;
+    left: 25px;
+}
+
+#thicknessRange {
+    position: absolute;
+    width: 100px;
+}
+
+#inputColor {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    height: 50px;
+    width: 80px;
+    left: 35px;
+}
+
+#inputColor::-webkit-color-swatch {
+    border: none;
+    border-radius: 10px;
+}
+
+#inputColor::-moz-color-swatch {
+    border: none;
+    border-radius: 10px;
+}
+
+.leftToolButton {
+    left: 6px;
+}
+
+.rightToolButton {
+    right: 6px;
 }
