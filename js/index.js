@@ -2,6 +2,12 @@
 // 8=line 9=refresh 10=upload 11=download 12=undo 13=redo 14=enlarge 15=shrink
 var nowTool = 0;
 var toolActive = 0;
+class drawStepStack {
+    constructor() {
+        undoStack = [];
+        redoStack = [];
+    }
+}
 function createCanvas(h, w) {
     canvas = document.getElementById('myCanvas');
     ctx = canvas.getContext('2d');
@@ -20,16 +26,41 @@ function createCanvas(h, w) {
     $("#myCanvas").show();
 }
 function clickCursor() {
+    toolActive = 0;
     changeToolButton(0);
     $("#canvasBlock").css({ 'cursor': "default" });
 }
 function clickDrag() {
+    toolActive = 0;
     changeToolButton(1);
     $("#canvasBlock").css({ 'cursor': "grab" });
 }
 function clickText() {
+    toolActive = 0;
     changeToolButton(2);
     $("#canvasBlock").css({ 'cursor': "url(\"img/textCursor.png\"),default" });
+}
+function clickPen() {
+    toolActive = 0;
+    changeToolButton(3);
+    $("#canvasBlock").css({ 'cursor': "url(\"img/penCursor.png\"),default" });
+}
+function clickEraser() {
+    toolActive = 0;
+    changeToolButton(4);
+    $("#canvasBlock").css({ 'cursor': "url(\"img/eraserCursor.png\"),default" });
+}
+function clickCircle() {
+    toolActive = 0;
+    changeToolButton(5);
+}
+function clickRectangle() {
+    toolActive = 0;
+    changeToolButton(6);
+}
+
+function clickRefresh() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 function drag(originX, originY, dx, dy) {
     $("#canvasBlock").css({ "left": (originX + dx) + "px" });
