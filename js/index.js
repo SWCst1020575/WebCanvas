@@ -2,11 +2,9 @@
 // 8=line 9=refresh 10=upload 11=download 12=undo 13=redo 14=enlarge 15=shrink
 var nowTool = 0;
 var toolActive = 0;
-class drawStepStack {
-    constructor() {
-        undoStack = [];
-        redoStack = [];
-    }
+var drawStepStack = {
+    undoStack: [],
+    redoStack: []
 }
 function createCanvas(h, w) {
     canvas = document.getElementById('myCanvas');
@@ -43,24 +41,71 @@ function clickText() {
 function clickPen() {
     toolActive = 0;
     changeToolButton(3);
-    $("#canvasBlock").css({ 'cursor': "url(\"img/penCursor.png\"),default" });
+    $("#canvasBlock").css({ 'cursor': "url(\"img/penCursor.png\") 2 16,default" });
 }
 function clickEraser() {
     toolActive = 0;
     changeToolButton(4);
-    $("#canvasBlock").css({ 'cursor': "url(\"img/eraserCursor.png\"),default" });
+    $("#canvasBlock").css({ 'cursor': "url(\"img/eraserCursor.png\") 2 14,default" });
 }
 function clickCircle() {
     toolActive = 0;
     changeToolButton(5);
+    $("#canvasBlock").css({ 'cursor': "url(\"img/penCursor.png\") 2 16,default" });
 }
 function clickRectangle() {
     toolActive = 0;
     changeToolButton(6);
+    $("#canvasBlock").css({ 'cursor': "url(\"img/penCursor.png\") 2 16,default" });
+}
+function clickTriangle() {
+    toolActive = 0;
+    changeToolButton(7);
+    $("#canvasBlock").css({ 'cursor': "url(\"img/penCursor.png\") 2 16,default" });
+}
+function clickLine() {
+    toolActive = 0;
+    changeToolButton(8);
+    $("#canvasBlock").css({ 'cursor': "url(\"img/penCursor.png\") 2 16,default" });
+}
+function clickUpload() {
+    toolActive = 0;
+    changeToolButton(10);
+    $("#canvasBlock").css({ 'cursor': "default" });
+}
+function clickDownload() {
+    toolActive = 0;
+    changeToolButton(11);
+    $("#canvasBlock").css({ 'cursor': "default" });
+    var link = document.createElement('a');
+    link.download = 'canvas.png';
+    link.href = document.getElementById('myCanvas').toDataURL()
+    link.click();
+    changeToolButton(0);
+}
+function clickRefresh() {
+    drawStepStack.redoStack.length = 0;
+    drawStepStack.undoStack.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    if (drawStepStack.undoStack.length > 50)
+        drawStepStack.undoStack.shift();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-function clickRefresh() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+function clickUndo() {
+    if (drawStepStack.undoStack.length > 0) {
+        drawStepStack.redoStack.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.putImageData(drawStepStack.undoStack[drawStepStack.undoStack.length - 1], 0, 0);
+        drawStepStack.undoStack.pop();
+    }
+}
+function clickRedo() {
+    if (drawStepStack.redoStack.length > 0) {
+        drawStepStack.undoStack.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.putImageData(drawStepStack.redoStack[drawStepStack.redoStack.length - 1], 0, 0);
+        drawStepStack.redoStack.pop();
+    }
 }
 function drag(originX, originY, dx, dy) {
     $("#canvasBlock").css({ "left": (originX + dx) + "px" });
@@ -82,6 +127,7 @@ function changeToolButton(target) {
             $("#penButton").css({ 'background-color': colorType });
             break;
         case 4:
+            ctx.globalCompositeOperation = 'source-over';
             $("#eraserButton").css({ 'background-color': colorType });
             break;
         case 5:

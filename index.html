@@ -49,12 +49,12 @@
                     <button id="rectangleButton" class="toolButton leftToolButton" onclick="clickRectangle()">
                         <img src="img/rectangle.png" width="35" height="35">
                     </button>
-                    <button id="triangleButton" class="toolButton rightToolButton" onclick="">
+                    <button id="triangleButton" class="toolButton rightToolButton" onclick="clickTriangle()">
                         <img src="img/triangle.png" width="35" height="35">
                     </button>
                 </div>
                 <div id="toolWindowFifthButton">
-                    <button id="lineButton" class="toolButton leftToolButton" onclick="">
+                    <button id="lineButton" class="toolButton leftToolButton" onclick="clickLine()">
                         <img src="img/line.png" width="35" height="35">
                     </button>
                     <button id="refreshButton" class="toolButton rightToolButton" onclick="clickRefresh()">
@@ -62,19 +62,19 @@
                     </button>
                 </div>
                 <div id="toolWindowSixthButton">
-                    <input id="uploadFile" type="file" style="display: none" accept="image/*">
+                    <input id="uploadFile" type="file" style="display: none" accept="image/*" onclick="clickUpload()">
                     <button id="uploadButton" class="toolButton leftToolButton" onclick="uploadFile.click()">
                         <img src="img/upload.png" width="35" height="35">
                     </button>
-                    <button id="downloadButton" class="toolButton rightToolButton" onclick="">
+                    <button id="downloadButton" class="toolButton rightToolButton" onclick="clickDownload()">
                         <img src="img/download.png" width="35" height="35">
                     </button>
                 </div>
                 <div id="toolWindowSeventhButton">
-                    <button id="undoButton" class="toolButton leftToolButton" onclick="">
+                    <button id="undoButton" class="toolButton leftToolButton" onclick="clickUndo()">
                         <img src="img/undo.png" width="35" height="35">
                     </button>
-                    <button id="redoButton" class="toolButton rightToolButton" onclick="">
+                    <button id="redoButton" class="toolButton rightToolButton" onclick="clickRedo()">
                         <img src="img/redo.png" width="35" height="35">
                     </button>
                 </div>
