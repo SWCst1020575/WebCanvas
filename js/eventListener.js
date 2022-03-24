@@ -317,3 +317,7 @@ document.getElementById('uploadFile').addEventListener('change', function (event
 
     }
 });
+
+$(window).resize(function () {
+    $("#toolScrollBlock").css({ "top": "0px" });
+});

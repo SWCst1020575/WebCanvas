@@ -60,47 +60,42 @@ html {
 
 #toolWindowSecondButton {
     position: relative;
-    top: 70px;
+    top: 75px;
 }
 
 #toolWindowThirdButton {
     position: relative;
-    top: 140px;
+    top: 150px;
 }
 
 #toolWindowFourthButton {
     position: relative;
-    top: 210px;
+    top: 225px;
 }
 
 #toolWindowFifthButton {
     position: relative;
-    top: 280px;
+    top: 300px;
 }
 
 #toolWindowSixthButton {
     position: relative;
-    top: 350px;
+    top: 375px;
 }
 
 #toolWindowSeventhButton {
     position: relative;
-    top: 420px;
+    top: 450px;
 }
 
 #toolWindowEighthButton {
     position: relative;
-    top: 490px;
+    top: 525px;
 }
 
 #toolWindowNinthButton {
     position: relative;
-    top: 565px;
-}
-
-#toolWindowTenthButton {
-    position: relative;
-    top: 615px;
+    top: 585px;
     left: 25px;
 }
 
