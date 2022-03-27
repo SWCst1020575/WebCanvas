@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>WebCanvas - Create Canvas</title>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/createCanvasWindow.js"></script>
@@ -79,10 +83,25 @@
                     </button>
                 </div>
                 <div id="toolWindowEighthButton">
-                    <input type="color" id="inputColor">
+                    <button id="filledButton" class="toolButton leftToolButton" onclick="clickFilled()">
+                        <img src="img/filled.png" width="35" height="35">
+                    </button>
                 </div>
                 <div id="toolWindowNinthButton">
+                    <input type="color" id="inputColor">
+                </div>
+                <div id="toolWindowTenthButton">
                     <input type="range" id="thicknessRange" min="1" max="50" value="10" step="1">
+                </div>
+                <div id="toolWindowEleventhButton">
+                    <select id="fontType">
+                        <option value="Oswald">Oswald</option>
+                        <option value="Ubuntu">Ubuntu</option>
+                        <option value="Ramaraja">Ramaraja</option>
+                        <option value="Inconsolata">Inconsolata</option>
+                        <option value="Quicksand">Quicksand</option>
+                        <option value="Hurricane">Hurricane</option>
+                    </select>
                 </div>
             </div>
         </div>

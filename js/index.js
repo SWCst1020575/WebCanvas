@@ -2,6 +2,7 @@
 // 8=line 9=refresh 10=upload 11=download 12=undo 13=redo 14=enlarge 15=shrink
 var nowTool = 0;
 var toolActive = 0;
+var isFilled = false;
 var drawStepStack = {
     undoStack: [],
     redoStack: []
@@ -16,7 +17,14 @@ function createCanvas(h, w) {
     canvasY = "calc(50vh - {0}px)".replace("{0}", canvas.height / 2);
     canvasBlockHeight = h + "px";
     canvasBlockWidth = w + "px";
-    $("#canvasBlock").css({ 'background-color': "white", 'position': "absolute", 'width': canvasBlockWidth, 'height': canvasBlockHeight, 'top': canvasY, 'left': canvasX });
+    $("#canvasBlock").css({
+        'background-color': "white",
+        'position': "absolute",
+        'width': canvasBlockWidth,
+        'height': canvasBlockHeight,
+        'top': canvasY,
+        'left': canvasX
+    });
     nowTool = 0;
     $("#cursorButton").css({ 'background-color': "rgba(215, 215, 215, 0.7)" });
     $("title").text("WebCanvas - " + w + "x" + h);
@@ -75,13 +83,10 @@ function clickUpload() {
 }
 function clickDownload() {
     toolActive = 0;
-    changeToolButton(11);
-    $("#canvasBlock").css({ 'cursor': "default" });
     var link = document.createElement('a');
     link.download = 'canvas.png';
     link.href = document.getElementById('myCanvas').toDataURL()
     link.click();
-    changeToolButton(0);
 }
 function clickRefresh() {
     drawStepStack.redoStack.length = 0;
@@ -106,6 +111,13 @@ function clickRedo() {
         ctx.putImageData(drawStepStack.redoStack[drawStepStack.redoStack.length - 1], 0, 0);
         drawStepStack.redoStack.pop();
     }
+}
+function clickFilled() {
+    if (isFilled)
+        $("#filledButton").css({ 'background-color': 'rgba(255, 255, 255, 0.7)' });
+    else
+        $("#filledButton").css({ 'background-color': 'rgba(215, 215, 215, 0.7)' });
+    isFilled = !isFilled;
 }
 function drag(originX, originY, dx, dy) {
     $("#canvasBlock").css({ "left": (originX + dx) + "px" });
@@ -217,3 +229,9 @@ function changeToolButton(target) {
     }
     nowTool = target;
 }
+
+WebFont.load({
+    google: {
+        families: ['Roboto Monos', 'Hurricane', 'Oswald', 'Ubuntu', 'Ramaraja', 'Quicksand', 'Inconsolata']
+    }
+});

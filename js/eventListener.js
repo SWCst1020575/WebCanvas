@@ -70,7 +70,10 @@ $("#canvasBlock").mousedown(function (event) {
             ctx.lineWidth = $("#thicknessRange").val();
             ctx.strokeStyle = $("#inputColor").val();
             canvasRecord = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            ctx.strokeRect(cursorX, cursorY, 0, 0);
+            if (isFilled)
+                ctx.fillRect(cursorX, cursorY, 0, 0);
+            else
+                ctx.strokeRect(cursorX, cursorY, 0, 0);
             break;
         case 7:
             drawStepStack.redoStack.length = 0;
@@ -167,24 +170,40 @@ $("#canvasBlock").mousemove(function (event) {
                 ctx.putImageData(canvasRecord, 0, 0);
                 ctx.beginPath();
                 ctx.arc(mouseDownCursorX, mouseDownCursorY, Math.sqrt((cursorX - mouseDownCursorX) * (cursorX - mouseDownCursorX) + (cursorY - mouseDownCursorY) * (cursorY - mouseDownCursorY)), 0, 2 * Math.PI);
+                if (isFilled)
+                    ctx.fill();
                 ctx.stroke();
                 break;
             case 6:
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.putImageData(canvasRecord, 0, 0);
-                ctx.strokeRect(mouseDownCursorX, mouseDownCursorY, cursorX - mouseDownCursorX, cursorY - mouseDownCursorY);
+                if (isFilled)
+                    ctx.fillRect(mouseDownCursorX, mouseDownCursorY, cursorX - mouseDownCursorX, cursorY - mouseDownCursorY);
+                else
+                    ctx.strokeRect(mouseDownCursorX, mouseDownCursorY, cursorX - mouseDownCursorX, cursorY - mouseDownCursorY);
                 break;
             case 7:
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.putImageData(canvasRecord, 0, 0);
+                ctx.lineWidth = $("#thicknessRange").val();
                 ctx.beginPath();
                 ctx.moveTo(mouseDownCursorX, mouseDownCursorY);
                 ctx.lineTo(cursorX, cursorY);
-                ctx.moveTo(mouseDownCursorX, mouseDownCursorY);
+                ctx.moveTo(cursorX, cursorY);
                 ctx.lineTo(mouseDownCursorX - (cursorX - mouseDownCursorX), cursorY);
                 ctx.moveTo(mouseDownCursorX - (cursorX - mouseDownCursorX), cursorY);
-                ctx.lineTo(cursorX, cursorY);
+                ctx.lineTo(mouseDownCursorX, mouseDownCursorY);
                 ctx.stroke();
+                if (isFilled) {
+                    ctx.lineWidth = '1';
+                    ctx.beginPath();
+                    ctx.moveTo(mouseDownCursorX, mouseDownCursorY);
+                    ctx.lineTo(cursorX, cursorY);
+                    ctx.lineTo(mouseDownCursorX - (cursorX - mouseDownCursorX), cursorY);
+                    ctx.lineTo(mouseDownCursorX, mouseDownCursorY);
+                    ctx.fill();
+                    ctx.stroke();
+                }
                 break;
             case 8:
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -279,7 +298,7 @@ $("#toolWindow").bind('mousewheel', function (event) {
 $('#textInput').keypress(function (event) {
     if (event.which == 13) {
         toolActive = 0;
-        ctx.font = $("#thicknessRange").val() + "px Arial";
+        ctx.font = $("#thicknessRange").val() + "px " + $("#fontType :selected").text();;
         ctx.fillStyle = $("#inputColor").val();
         var nowX = parseInt($('#textInput').css("left"), 10) - parseInt($("#canvasBlock").css("left"), 10);
         var nowY = parseInt($('#textInput').css("top"), 10) - parseInt($("#canvasBlock").css("top"), 10);

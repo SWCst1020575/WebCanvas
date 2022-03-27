@@ -22,10 +22,9 @@
 }
 
 #toolScrollBlock {
-
     position: relative;
     top: 0px;
-    height: 650px;
+    height: 740px;
 }
 
 html {
@@ -95,7 +94,18 @@ html {
 
 #toolWindowNinthButton {
     position: relative;
-    top: 585px;
+    top: 600px;
+}
+
+#toolWindowTenthButton {
+    position: relative;
+    top: 660px;
+    left: 25px;
+}
+
+#toolWindowEleventhButton {
+    position: relative;
+    top: 690px;
     left: 25px;
 }
 
@@ -140,4 +150,10 @@ html {
     font-size: 24px;
     position: absolute;
     border-radius: 8px;
+}
+
+#fontType {
+    width: 100px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.8);
 }
