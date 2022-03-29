@@ -17,7 +17,12 @@ function numberRestriction(obj) {
     obj.value = Number(obj.value);
 }
 function clickCreateCanvas() {
-    var h = Number($("#heightSet").val()), w = Number($("#widthSet").val());
+    try {
+        var h = Number($("#heightSet").val()), w = Number($("#widthSet").val());
+    }
+    catch (e) {
+        alert("Please enter integers.")
+    }
     if (h > 0 && w > 0) {
         $("#creatWindow").hide();
         $("title").text("WebCanvas");
@@ -30,3 +35,20 @@ function clickCreateCanvas() {
             $("#widthSet").css({ 'border-color': 'red' });
     }
 }
+function isMobile() {
+    try { document.createEvent("TouchEvent"); return true; }
+    catch (e) { return false; }
+}
+
+$("#creatWindow").ready(function () {
+    if (isMobile()) {
+        $("#heightSet").removeAttr("readonly");
+        $("#heightSet").removeAttr("type");
+        $("#heightSet").removeAttr("onkeydown");
+        $("#heightSet").attr("type", "number");
+        $("#widthSet").removeAttr("readonly");
+        $("#widthSet").removeAttr("type");
+        $("#widthSet").removeAttr("onkeydown");
+        $("#widthSet").attr("type", "number");
+    }
+});
