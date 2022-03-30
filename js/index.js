@@ -134,6 +134,7 @@ function changeToolButton(target) {
             break;
         case 2:
             $("#textButton").css({ 'background-color': colorType });
+            $("#textInput").hide();
             break;
         case 3:
             $("#penButton").css({ 'background-color': colorType });
