@@ -74,7 +74,7 @@
 #### Un/Re-do button
 
 ![RedoUndo](gif/RedoUndo.gif)
-- Can redo 50 steps at most.
+- Can undo/redo 50 steps at most.
 <br><br>
 
 #### Image tool
