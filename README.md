@@ -59,7 +59,8 @@ You can scroll the tool window with mouse wheel, and change **color**, **size**,
 
 #### Cursor icon
 
-Besides default cursor, there are four types of cursor. 
+Besides default cursor, there are four types of cursor.  
+
 <img src="mdimg/dragCursor.png" height="50%" width="50%">
 <img src="mdimg/penCursor.png" height="50%" width="50%">
 <img src="mdimg/eraserCursor.png" height="50%" width="50%">
