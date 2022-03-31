@@ -28,14 +28,19 @@
 
 #### Create a canvas
 
+Create a canvas at first.
 ![Create](gif/createCanvas.gif)
 <br><br>
 
 #### Tool window
 
-    You can change color, size, font at the bottom of tool window.
+You can scroll the tool window with mouse wheel, and change **color**, **size**, **font** at the bottom of tool window.
+
+
 ![Scroll](gif/scrollToolWindow.gif)
-<br><br><br>
+
+
+<br><br>
 
 ### Basic components
 
@@ -43,25 +48,29 @@
 
 ![Pen](gif/Pen.gif)
 ![Eraser](gif/Eraser.gif)
-<br><br>
+
+<br>
 
 #### Text input
 
 ![Text](gif/Text.gif)
-<br><br>
+
+<br>
 
 #### Cursor icon
 
-    Except for default cursor, there are four types of cursor. 
+Besides default cursor, there are four types of cursor. 
 <img src="mdimg/dragCursor.png" height="50%" width="50%">
 <img src="mdimg/penCursor.png" height="50%" width="50%">
 <img src="mdimg/eraserCursor.png" height="50%" width="50%">
 <img src="mdimg/textCursor.png" height="50%" width="50%">
-<br><br>
+
+<br>
 
 #### Refresh button
 
 ![Refresh](gif/Refresh.gif)
+
 <br><br>
 
 ### Advanced tools
@@ -69,34 +78,44 @@
 #### Different brush shapes
 
 ![Shape](gif/Shape.gif)
-<br><br>
+
+<br>
 
 #### Un/Re-do button
 
-![RedoUndo](gif/RedoUndo.gif)
 - Can undo/redo 50 steps at most.
-<br><br>
+
+![RedoUndo](gif/RedoUndo.gif)
+
+<br>
 
 #### Image tool
 
+After upload a image file, move mouse in canvas and click to confirm the position of image.
+
 ![Upload](gif/Upload.gif)
-<br><br>
+
+<br>
 
 #### Download
 
 ![Download](gif/Download.gif)
-<br><br>
+
+<br>
 
 ### Other useful widgets
 
 #### Customized canvas size
 
-    You can create canvas with customized width and height (1~9999px).
+You can create canvas with customized width and height (1~9999px).
+
+<br>
 
 #### Movable canvas
 
 ![Drag](gif/dragCanvas.gif)
-<br><br>
+
+<br>
 
 ### Firebase page link
 
